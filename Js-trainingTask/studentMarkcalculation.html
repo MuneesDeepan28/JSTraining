@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<script>
+var studentDetails = {
+        'student1' : {
+            'name':'Raj',
+            'subject1':80,
+            'subject2':100,
+            'subject3':90,
+            'subject4':50,
+            'subject5':40       
+           
+        },
+        'student2' : {
+            'name':'Kumar',
+            'subject1':97,
+            'subject2':95,
+            'subject3':95,
+            'subject4':92,
+            'subject5':97   
+           
+        },
+        'student3' : {
+            'name':'Sam',
+            'subject1':80,
+            'subject2':80,
+            'subject3':60,
+            'subject4':80,
+            'subject5':50   
+           
+        },
+        'student4' : {
+            'name':'John',
+            'subject1':32,
+            'subject2':56,
+            'subject3':76,
+            'subject4':76,
+            'subject5':94   
+           
+        },
+        'student5' : {
+            'name':'selva',
+            'subject1':30,
+            'subject2':20,
+            'subject3':60,
+            'subject4':75,
+            'subject5':83   
+           
+        },
+    };
+ console.table(studentDetails);
+var total;
+var average;
+for (var displayStudentDetails of Object.entries(studentDetails)) {
+console.log(displayStudentDetails);
+total = displayStudentDetails[1].subject1+displayStudentDetails[1].subject2+displayStudentDetails[1].subject3+displayStudentDetails[1].subject4+displayStudentDetails[1].subject5;
+console.log(total);
+average = total/5;
+displayStudentDetails[1][6] = average;
+ displayStudentDetails[1][7]= total;
+console.log(average);
+ if(displayStudentDetails[1][6] >90)
+ {
+    console.log("First rank student name is :" + displayStudentDetails[1].name);
+  }
+   if(displayStudentDetails[1][6] < 60)
+   {
+     console.log("Last rank student name is: " + displayStudentDetails[1].name);
+   }
+    if(displayStudentDetails[1][6] >=95)
+   {
+      alert("First rank student name is"+displayStudentDetails[1].name+"and  percentage is: "+ displayStudentDetails[1][6] );
+   }
+    if(displayStudentDetails[1].subject1 <= 30)
+   {
+    var selectedValue=confirm("Do you need to display lowest mark in subject1 ?")
+    if(selectedValue == true)
+      {
+        alert(displayStudentDetails[1].subject1);
+      }
+   }
+}
+</script>
+</html>
