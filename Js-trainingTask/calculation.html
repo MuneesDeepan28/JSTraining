@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<script>
+		    function calculation() {
+		      var getFirstNumber = parseInt(prompt("Enter the first number:"));
+			  var getSecondNumber = parseInt(prompt("Enter the Second number:"));
+			    if(isNaN(getFirstNumber) || isNaN(getSecondNumber)){
+			      alert("Accept only numbers");
+			    }
+			    else{
+			      var printResult = getFirstNumber + getSecondNumber;
+			      console.log(printResult);
+			      var printResult = getFirstNumber - getSecondNumber;
+			      console.log(printResult);
+			      var printResult = getFirstNumber * getSecondNumber;
+			      console.log(printResult);
+			      var printResult = getFirstNumber / getSecondNumber;
+			      console.log(printResult);
+			    }
+			}
+			calculation();
+	    </script>
+	</body>
+</html>
