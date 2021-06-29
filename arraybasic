@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		var emptyarray = [];
+		var getNumber = [63, 43, 2, 54, 8, 9, 0, 5, 21, 3];
+		var getString = ['hai', 'hello', 'help', 'Welcome', 'stop'];
+		var getNumberAndString = [63, 4, 'Welcome', 'hai'];
+		const myArray = ['h', 'e', 'l', 'l', 'o'];
+		console.log(getNumber);
+		console.log(getString);
+		console.log(getNumberAndString);
+		console.log(myArray[3], myArray[4]);
+		myArray.push('T');
+		console.log("Add a new element to the end of the array:" + myArray);
+		myArray.unshift('A');
+		console.log("Add a new element to the beginning of the array:" + myArray);
+	</script>
+</body>
+
+</html>
