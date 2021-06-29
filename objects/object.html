@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		let user = {
+			name: "John",
+			surname: "Smith"
+		}
+		console.log(user);
+		user.name = "Pete";
+		console.log(user);
+		delete user.name;
+		console.log(user);
+		let salaries = {
+			John: 100,
+			Ann: 160,
+			Pete: 130
+		}
+		if (Object.keys(salaries).length != 0) {
+			var sum = salaries.John + salaries.Ann + salaries.Pete;
+			salaries.Sum = sum;
+			console.log(salaries);
+		}
+		else {
+			salaries.Sum = 0;
+			console.log(salaries);
+		}
+	</script>
+</body>
+
+</html>
