@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		var getFirstNumber = parseInt(prompt("Enter the first number:"));
+		var getSecondNumber = parseInt(prompt("Enter the Second number:"));
+		if (isNaN(getFirstNumber) || isNaN(getSecondNumber)) {
+			alert("Accept only numbers");
+		}
+		else {
+			var printAddResult = getFirstNumber + getSecondNumber;
+			console.log(printAddResult);
+			var printSubractResult = getFirstNumber - getSecondNumber;
+			console.log(printSubractResult);
+			var printMultiplicationResult = getFirstNumber * getSecondNumber;
+			console.log(printMultiplicationResult);
+			var printDivisionResult = getFirstNumber / getSecondNumber;
+			console.log(printDivisionResult);
+		}
+		var storeResultData = {
+			"FirstNumber": getFirstNumber,
+			"SecondNumber": getSecondNumber,
+			"Add": printAddResult,
+			"subract": printSubractResult,
+			"Multiplication": printMultiplicationResult,
+			"Division": printDivisionResult
+		}
+		console.log(storeResultData);
+	</script>
+</body>
+
+</html>
