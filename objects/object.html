@@ -17,8 +17,12 @@
 			Ann: 160,
 			Pete: 130
 		}
+		var sum = 0;
 		if (Object.keys(salaries).length != 0) {
-			var sum = salaries.John + salaries.Ann + salaries.Pete;
+			for (var total in salaries) {
+				sum += parseInt(salaries[total]);
+			}
+			console.log("sum:" + sum);
 			salaries.Sum = sum;
 			console.log(salaries);
 		}
