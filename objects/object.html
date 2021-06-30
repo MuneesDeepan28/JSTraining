@@ -19,14 +19,13 @@
 		}
 		var sum = 0;
 		if (Object.keys(salaries).length != 0) {
-			for (var total in salaries) {
-				sum += parseInt(salaries[total]);
+			for (var getName in salaries) {
+				sum += parseInt(salaries[getName]);
 			}
 			console.log("sum:" + sum);
 			salaries.Sum = sum;
 			console.log(salaries);
-		}
-		else {
+		} else {
 			salaries.Sum = 0;
 			console.log(salaries);
 		}
