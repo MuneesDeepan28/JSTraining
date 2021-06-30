@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		var studentDetails =
+		{
+			'student1':
+			{
+				'stuId': '1',
+				'name': 'Raj',
+				'subject1': 80,
+				'subject2': 100,
+				'subject3': 90,
+				'subject4': 50,
+				'subject5': 40
+			},
+			'student2':
+			{
+				'stuId': '2',
+				'name': 'Kumar',
+				'subject1': 97,
+				'subject2': 95,
+				'subject3': 95,
+				'subject4': 92,
+				'subject5': 97
+			},
+			'student3':
+			{
+				'stuId': '3',
+				'name': 'Sam',
+				'subject1': 90,
+				'subject2': 90,
+				'subject3': 90,
+				'subject4': 80,
+				'subject5': 50
+			},
+			'student4':
+			{
+				'stuId': '4',
+				'name': 'John',
+				'subject1': 32,
+				'subject2': 50,
+				'subject3': 70,
+				'subject4': 70,
+				'subject5': 94
+			},
+			'student5':
+			{
+				'stuId': '5',
+				'name': 'selva',
+				'subject1': 30,
+				'subject2': 20,
+				'subject3': 60,
+				'subject4': 75,
+				'subject5': 43
+			},
+		};
+		var jsTraining = jsTraining || {
+		};
+		jsTraining.studentMarkSystem = {
+			"printMarkDetails": function () {
+				var total = 0;
+				for (let markList in studentDetails) {
+					console.log(studentDetails[markList]);
+					total = studentDetails[markList].subject1 + studentDetails[markList].subject2 + studentDetails[markList].subject3 + studentDetails[markList].subject4 + studentDetails[markList].subject5;
+					studentDetails[markList].Total = total;
+				}
+			},
+			"printMarkDetailsAsc": function () {
+				var sortStudentDetails = Object.values(studentDetails);
+				var sortAscending = sortStudentDetails.sort(function (a, b) {
+					return a.Total - b.Total;
+				});
+				console.table(sortAscending);
+			},
+			"printMarkDetailsDesc": function () {
+				var sortStudentDetails = Object.values(studentDetails);
+				var sortDescending = sortStudentDetails.sort(function (a, b) {
+					return b.Total - a.Total;
+				});
+				console.table(sortDescending);;
+			}
+		};
+		jsTraining.studentMarkSystem.printMarkDetails();
+		jsTraining.studentMarkSystem.printMarkDetailsAsc();
+		jsTraining.studentMarkSystem.printMarkDetailsDesc();
+	</script>
+</body>
+
+</html>
