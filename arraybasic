@@ -11,7 +11,8 @@
 		console.log(getNumber);
 		console.log(getString);
 		console.log(getNumberAndString);
-		console.log(myArray[3], myArray[4]);
+		console.log(myArray);
+		console.log(myArray[2], myArray[4]);
 		myArray.push('T');
 		console.log("Add a new element to the end of the array:" + myArray);
 		myArray.unshift('A');
