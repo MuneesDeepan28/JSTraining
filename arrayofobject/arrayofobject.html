@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		var books = [
+			{
+				title: 'The Design of EveryDay Things',
+				author: 'Don Norman',
+				alreadyRead: false
+			},
+			{
+				title: 'The Most Human Human',
+				author: 'Brian Christian',
+				alreadyRead: true
+			}];
+		for (let bookDescription of books) {
+			console.log(bookDescription.title + " by " + bookDescription.author);
+			if (bookDescription.alreadyRead == true) {
+				console.log("You already read the book " + bookDescription.title + " by " + bookDescription.author);
+			} else {
+				console.log("You still need to read the book " + bookDescription.title + " by " + bookDescription.author);
+			}
+		}
+	</script>
+</body>
+
+</html>
