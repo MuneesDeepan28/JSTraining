@@ -62,29 +62,30 @@
 			"printMarkDetails": function () {
 				var total = 0;
 				for (let markList in studentDetails) {
-					console.log(studentDetails[markList]);
 					total = studentDetails[markList].subject1 + studentDetails[markList].subject2 + studentDetails[markList].subject3 + studentDetails[markList].subject4 + studentDetails[markList].subject5;
 					studentDetails[markList].Total = total;
 				}
+				console.log(studentDetails);
 			},
-			"printMarkDetailsAsc": function () {
-				var sortStudentDetails = Object.values(studentDetails);
-				var sortAscending = sortStudentDetails.sort(function (a, b) {
+			"getStudentDetails": Object.values(studentDetails),
+			"printMarkDetailsAsc": function (getStudentDetails) {
+				var sortAscending;
+				sortAscending = getStudentDetails.sort(function (a, b) {
 					return a.Total - b.Total;
 				});
 				console.table(sortAscending);
 			},
-			"printMarkDetailsDesc": function () {
-				var sortStudentDetails = Object.values(studentDetails);
-				var sortDescending = sortStudentDetails.sort(function (a, b) {
+			"printMarkDetailsDesc": function (getStudentDetails) {
+				var sortDescending;
+				sortDescending = getStudentDetails.sort(function (a, b) {
 					return b.Total - a.Total;
 				});
-				console.table(sortDescending);;
+				console.table(sortDescending);
 			}
 		};
 		jsTraining.studentMarkSystem.printMarkDetails();
-		jsTraining.studentMarkSystem.printMarkDetailsAsc();
-		jsTraining.studentMarkSystem.printMarkDetailsDesc();
+		jsTraining.studentMarkSystem.printMarkDetailsAsc(jsTraining.studentMarkSystem.getStudentDetails);
+		jsTraining.studentMarkSystem.printMarkDetailsDesc(jsTraining.studentMarkSystem.getStudentDetails);
 	</script>
 </body>
 
