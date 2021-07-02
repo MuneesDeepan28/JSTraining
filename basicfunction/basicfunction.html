@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		var evenNumbers = [2, 4, 6, 8, 10];
+		var oddNumbers = [1, 3, 5, 7, 11];
+		var findHighestNumber = [44, 66, 32, 11, 3, 77];
+		var findSmallestNumber = [2, 56, 4, 9, 38, 12];
+		var printReturnNumber;
+		var printReturnArrray;
+		var printLargestNumber;
+		var printSmallestNumber;
+		function printstatement() {
+			console.log("Welcome");
+		}
+		function MultiplicationOfNumbers(a, b) {
+			return a * b;
+		}
+		function concatArray(even, odd) {
+			return even.concat(odd);
+		}
+		function getLargestNumber(largestNumber) {
+			var largestArrayValue = 0;
+			for (iterateLargestnumber = 0; iterateLargestnumber <= largestNumber.length; iterateLargestnumber++) {
+				if (largestNumber[iterateLargestnumber] > largestArrayValue) {
+					var largestArrayValue = largestNumber[iterateLargestnumber];
+				}
+			}
+			return largestArrayValue;
+		}
+		function getSmallestNumber(smallestNumber) {
+			var smallestArrayValue = 0;
+			for (iterateSmallestnumber = 0; iterateSmallestnumber <= smallestNumber.length; iterateSmallestnumber++) {
+				if (smallestArrayValue == 0) {
+					smallestArrayValue = smallestNumber[iterateSmallestnumber];
+				}
+				if (smallestNumber[iterateSmallestnumber] < smallestArrayValue) {
+					var smallestArrayValue = smallestNumber[iterateSmallestnumber];
+				}
+			}
+			return smallestArrayValue;
+		}
+		printstatement();
+		printReturnNumber = MultiplicationOfNumbers(5, 2);
+		console.log(printReturnNumber);
+		printReturnArrray = concatArray(evenNumbers, oddNumbers);
+		console.log(printReturnArrray);
+		printLargestNumber = getLargestNumber(findHighestNumber);
+		console.log(printLargestNumber);
+		printSmallestNumber = getSmallestNumber(findSmallestNumber);
+		console.log(printSmallestNumber);
+	</script>
+</body>
+
+</html>
