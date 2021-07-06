@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Working with Class</title>
+</head>
+
+<body>
+	<label>First Name</label>
+	<input type="text" name="fname" id="fname">
+	<label>Last Name</label>
+	<input type="text" name="lname" id="lname">
+	<label>Date</label>
+	<input type="date" name="dateTime" id="dateTime">
+	<input type="submit" onclick="getUserDetails()">
+	<h2 id="displayName"></h2>
+	<h2 id="displayAge"></h2>
+	<script>
+		var firstName;
+		var lastName;
+		var dob;
+		class userDetails {
+			constructor(firstName, lastName, dob) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.dob = dob;
+			}
+			calculateAge() {
+				var todayDate = new Date();
+				var birthdayDate = new Date(this.dob);
+				return todayDate.getFullYear() - birthdayDate.getFullYear();
+			}
+			getFullName() {
+				return this.firstName + this.lastName;
+			}
+		}
+		function getUserDetails() {
+			firstName = document.getElementById("fname").value;
+			lastName = document.getElementById("lname").value;
+			dob = document.getElementById("dateTime").value;
+			var details = new userDetails(firstName, lastName, dob);
+			document.getElementById("displayName").innerHTML = "Name:" + details.getFullName();
+			document.getElementById("displayAge").innerHTML = "Age:" + details.calculateAge();
+		}
+	</script>
+</body>
+
+</html>
