@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<script>
+		let user = {
+			name: "John",
+			surname: "Smith"
+		}
+		console.log(user);
+		user.name = "Pete";
+		console.log(user);
+		delete user.name;
+		console.log(user);
+		let salaries = {
+			John: 100,
+			Ann: 160,
+			Pete: 130
+		}
+		var sum = 0;
+		if (Object.keys(salaries).length != 0) {
+			for (var getName in salaries) {
+				sum += parseInt(salaries[getName]);
+			}
+			console.log("sum:" + sum);
+			salaries.Sum = sum;
+			console.log(salaries);
+		} else {
+			salaries.Sum = 0;
+			console.log(salaries);
+		}
+	</script>
+</body>
+
+</html>
