@@ -19,25 +19,28 @@
 		var firstName;
 		var lastName;
 		var dob;
+		class userDetails {
+			constructor(firstName, lastName, dob) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.dob = dob;
+			}
+			calculateAge() {
+				var todayDate = new Date();
+				var birthdayDate = new Date(this.dob);
+				return todayDate.getFullYear() - birthdayDate.getFullYear();
+			}
+			getFullName() {
+				return this.firstName + this.lastName;
+			}
+		}
 		function getUserDetails() {
 			firstName = document.getElementById("fname").value;
 			lastName = document.getElementById("lname").value;
 			dob = document.getElementById("dateTime").value;
-			new userDetails(firstName, lastName, dob);
-		}
-		class userDetails {
-			constructor(firstName, lastName, dob) {
-				var getFullName;
-				var calculateAge;
-				var todayDate = new Date();
-				var birthdayDate = new Date(dob);
-				getFullName = firstName + lastName;
-				calculateAge = todayDate.getFullYear() - birthdayDate.getFullYear();
-				console.log(getFullName);
-				console.log(calculateAge);
-				document.getElementById("displayName").innerHTML = getFullName;
-				document.getElementById("displayAge").innerHTML = calculateAge;
-			}
+			var details = new userDetails(firstName, lastName, dob);
+			document.getElementById("displayName").innerHTML = "Name:" + details.getFullName();
+			document.getElementById("displayAge").innerHTML = "Age:" + details.calculateAge();
 		}
 	</script>
 </body>
