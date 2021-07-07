@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Pagination</title>
+</head>
+
+<body>
+	<select name="postsPerPage" id="postPerPage" onchange="getSelected(1)">
+		<option></option>
+		<option value="5">5</option>
+		<option value="10">10</option>
+		<option value="15">15</option>
+		<option value="20">20</option>
+	</select>
+	<br>
+	<table border="2black">
+		<tr>
+			<th>ID</th>
+			<th>Date</th>
+			<th>Author Name</th>
+			<th>Post author</th>
+			<th>Title</th>
+		</tr>
+		<tbody id="displayAjaxData">
+
+		</tbody>
+	</table>
+	<br>
+	<button id="disableBackButton" onclick="previouspage()">Back</button>
+	<button id="disableNextButton" onclick="nextpage()">Next</button>
+	<script>
+		var displayTable;
+		var getJsonData;
+		var postCount;
+		var pageDisabled;
+		getSelected(1);
+		function nextpage() {
+			var value = JSON.parse(localStorage.getItem("NewsList"));
+			var pageNo = parseInt(value.data.page) + 1;
+			getSelected(pageNo);
+		}
+		function previouspage() {
+			var value = JSON.parse(localStorage.getItem("NewsList"));
+			var pageNo = parseInt(value.data.page) - 1;
+			getSelected(pageNo);
+		}
+		function getSelected(pageNo) {
+			postCount = document.getElementById("postPerPage").value;
+			var pageNo;
+			var getfirstPage;
+			var maxCount;
+			var apiFormatdata = new FormData();
+			apiFormatdata.append("posts_per_page", postCount);
+			apiFormatdata.append("page", pageNo);
+			apiFormatdata.append("order_by_date", "ASC");
+			newsApi();
+			async function newsApi() {
+				var apiResponse = await fetch("https://bra.scit.pt/wp-json/scit/v1/news/public", {
+					method: 'POST',
+					body: apiFormatdata
+				});
+				getJsonData = await apiResponse.json();
+				console.log(getJsonData);
+				localStorage.setItem("NewsList", JSON.stringify(getJsonData));
+				var displayData = '';
+				for (var i = 0; i < getJsonData.data.posts_per_page; i++) {
+					displayData += "<tr>";
+					displayData += "<td>" + getJsonData.data.posts[i].id + "</td>";
+					displayData += "<td>" + getJsonData.data.posts[i].date + "</td>";
+					displayData += "<td>" + getJsonData.data.posts[i].post_author_name + "</td>";
+					displayData += "<td>" + getJsonData.data.posts[i].post_author + "</td>";
+					displayData += "<td>" + getJsonData.data.posts[i].title + "</td>";
+				}
+				document.getElementById("displayAjaxData").innerHTML = displayData;
+				getfirstPage = getJsonData.data.page;
+				maxCount = getJsonData.data.max_num_pages;
+				if (getfirstPage == 1) {
+					document.getElementById("disableBackButton").disabled = true;
+				}
+				else {
+					document.getElementById("disableBackButton").disabled = false;
+				}
+				if (getfirstPage == maxCount) {
+					document.getElementById("disableNextButton").disabled = true;
+				}
+				else {
+					document.getElementById("disableNextButton").disabled = false;
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
