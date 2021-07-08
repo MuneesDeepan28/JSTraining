@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Functions</title>
+</head>
+
+<body>
+    <script>
+        var duplicatedArray = [44, 12, 13, 12, 11, 33, 12, 13, 44];
+        var arrayFirst = [1, 2, 3, 4];
+        var arraySecond = [1, 2, 3, 4];
+        var arrayThird = [1, 2, 3, 5];
+        var arrayFourth = [1, 2, 3, 4, 5];
+        var reversedArray = [];
+        var comparedArray;
+        function removeDulplicateValue(duplicatedArray) {
+            var uniqueArray = [];
+            for (let duplicate of duplicatedArray) {
+                if (uniqueArray.indexOf(duplicate) == -1) {
+                    uniqueArray.push(duplicate);
+                }
+            }
+            return uniqueArray;
+        }
+        function reverseTheArray(reverseArray) {
+            for (let reverse = reverseArray.length - 1; reverse >= 0; reverse--) {
+                reversedArray.push(reverseArray[reverse]);
+            }
+            return reversedArray;
+        }
+        function compareArrayValue(compareValue1, compareValue2) {
+            if (JSON.stringify(compareValue1) == JSON.stringify(compareValue2)) {
+                comparedArray = true;
+            }
+            else {
+                comparedArray = false;
+            }
+            return comparedArray;
+        }
+        console.log("Before removing the duplicate array: " + duplicatedArray);
+        var actualArray = removeDulplicateValue(duplicatedArray);
+        console.log("After removing the duplicate array: " + actualArray);
+        var reversedArray = reverseTheArray(actualArray);
+        console.log("Reversed arrray value: " + reversedArray);
+        console.log("Compare the first and second array: " + compareArrayValue(arrayFirst, arraySecond));
+        console.log("Compare the first and third array: " + compareArrayValue(arrayFirst, arrayThird));
+        console.log("Compare the first and fourth array: " + compareArrayValue(arrayFirst, arrayFourth));
+    </script>
+</body>
+</head>
